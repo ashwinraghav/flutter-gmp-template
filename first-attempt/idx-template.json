@@ -9,13 +9,19 @@
         "id": "apikey",
         "name": "API KEY",
         "type": "text",
-        "default": "fill key here"
+        "default": ""
       },
       {
         "id": "giturl",
         "name": "Git Url",
         "type": "text",
         "default": "https://github.com/googlemaps-samples/android-samples"
+      },
+      {
+        "id": "subdir",
+        "name": "Project Subfolder",
+        "type": "text",
+        "default": ""
       }
     ],
     "host": {
