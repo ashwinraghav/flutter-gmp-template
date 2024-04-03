@@ -18,7 +18,7 @@
     chmod -R +w "$WS_NAME"
     mkdir -p "$WS_NAME/.idx/"
     # Recommend commiting the dev.nix files to the upstream repo directly.
-    cp -rf ${./dev.nix} "$WS_NAME/.idx/dev.nix"
+    project_path="tutorials/java/MapWithMarker/" j2 --format=env devNix.j2  -o $WS_NAME/.idx/dev.nix
     mv "$WS_NAME" "$out"
   '';
 }
