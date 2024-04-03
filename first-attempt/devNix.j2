@@ -13,17 +13,13 @@
   # Sets environment variables in the workspace
   env = {};
   idx = {
-    workspace = {
-      onCreate = {
-        # Recommend making this change upstream. The samples seem to be using a very old version of gradle
-        upgrade-gradle = "cd {{ project_path }} && ./gradlew wrapper --gradle-version 8.7";
-      };
-    };
+
     previews = {
       enable = true;
       previews = [
         {
-          command = ["./.flutter-sdk/flutter/bin/flutter" "run" "--machine" "-d" "android" "-d" "localhost:5555"];
+          # command = ["./.flutter-sdk/flutter/bin/flutter" "run" "--machine" "-d" "android" "-d" "localhost:5555"];
+          command = ["cd {{ project_path }} && ./gradlew :app:assembleDebug && adb install ./app/build/outputs/apk/debug/app-debug.apk"];
           id = "android";
           manager = "flutter";
         }
