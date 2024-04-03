@@ -5,9 +5,11 @@
       pkgs.j2cli
   ];
   bootstrap = ''
-    mkdir -p "$WS_NAME"
+    mkdir -p "$WS_NAME" tmp
     
-    git clone --depth 1 ${giturl} $WS_NAME
+    git clone --depth 1 ${giturl} tmp
+
+    mv -r tmp/subdir/* "$WS_NAME"
 
     # Find every local.defaults.properties file in the repo ane replace the MAPS_API_KEY property with said value
     find $WS_NAME -type f -name 'local.defaults.properties' -exec sed -i "s/\(MAPS_API_KEY=\).*/\1\"${apikey}\"/" {} \;
@@ -19,7 +21,7 @@
     mkdir -p "$WS_NAME/.idx/"
 
     # We create a dev.nix that builds the subproject specified at template instantiation
-    workspace_name=$WS_NAME project_path=${subdir} j2 --format=env ${./devNix.j2} -o $WS_NAME/.idx/dev.nix
+    # workspace_name=$WS_NAME project_path=${subdir} j2 --format=env ${./devNix.j2} -o $WS_NAME/.idx/dev.nix
     mv "$WS_NAME" "$out"
   '';
 }
