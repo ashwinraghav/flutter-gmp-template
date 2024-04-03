@@ -19,7 +19,7 @@
     mkdir -p "$WS_NAME/.idx/"
 
     # We create a dev.nix that builds the subproject specified at template instantiation
-    project_path=${subdir} j2 --format=env ${./devNix.j2} -o $WS_NAME/.idx/dev.nix
+    workspace_name=$WS_NAME project_path=${subdir} j2 --format=env ${./devNix.j2} -o $WS_NAME/.idx/dev.nix
     mv "$WS_NAME" "$out"
   '';
 }
