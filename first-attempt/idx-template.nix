@@ -17,8 +17,9 @@
 
     chmod -R +w "$WS_NAME"
     mkdir -p "$WS_NAME/.idx/"
-    # Recommend commiting the dev.nix files to the upstream repo directly.
-    project_path="tutorials/java/MapWithMarker/" j2 --format=env devNix.j2  -o $WS_NAME/.idx/dev.nix
+
+    # We create a dev.nix that builds the subproject specified at template instantiation
+    project_path="$subdir" j2 --format=env devNix.j2  -o $WS_NAME/.idx/dev.nix
     mv "$WS_NAME" "$out"
   '';
 }
