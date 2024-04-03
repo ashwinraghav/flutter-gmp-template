@@ -19,7 +19,7 @@
       previews = [
         {
           # command = ["./.flutter-sdk/flutter/bin/flutter" "run" "--machine" "-d" "android" "-d" "localhost:5555"];
-          command = ["cd {{ workspace_name }}/{{ project_path }} && ./gradlew :app:assembleDebug && adb install ./app/build/outputs/apk/debug/app-debug.apk"];
+          command = ["cd {{ project_path }} && ./gradlew :app:assembleDebug && adb install ./app/build/outputs/apk/debug/app-debug.apk"];
           id = "android";
           manager = "flutter";
         }
