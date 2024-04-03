@@ -21,7 +21,7 @@
         "id": "subdir",
         "name": "Project Subfolder",
         "type": "text",
-        "default": ""
+        "default": "tutorials/java/MapWithMarker/"
       }
     ],
     "host": {
