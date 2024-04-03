@@ -5,7 +5,8 @@
     ];
   bootstrap = ''
     mkdir -p "$WS_NAME"
-    git clone --depth 1 ${giturl} repo
+    
+    git clone --depth 1 ${giturl} $WS_NAME
     echo ${apikey} > "$WS_NAME/apikey.txt"
     chmod -R +w "$WS_NAME"
     mkdir -p "$WS_NAME/.idx/"
