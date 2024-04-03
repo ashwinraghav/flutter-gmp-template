@@ -8,18 +8,11 @@
     pkgs.nodePackages.firebase-tools
     pkgs.jdk17
     pkgs.sdkmanager
+    pkgs.android-tools
   ];
   # Sets environment variables in the workspace
   env = {};
   idx = {
-    # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
-    extensions = [
-      # "vscodevim.vim"
-    ];
-    # Enable previews and customize configuration
-    workspace.onCreate = {
-        pub-get = "./.flutter-sdk/flutter/bin/flutter pub get";
-    };
     previews = {
       enable = true;
       previews = [
