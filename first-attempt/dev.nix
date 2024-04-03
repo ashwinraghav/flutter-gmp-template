@@ -16,7 +16,7 @@
     workspace = {
       onCreate = {
         # Recommend making this change upstream. The samples seem to be using a very old version of gradle
-        upgrade-gradle = "cd repo/tutorials/java/MapWithMarker/ && ./gradlew wrapper --gradle-version 8.7";
+        upgrade-gradle = "cd tutorials/java/MapWithMarker/ && ./gradlew wrapper --gradle-version 8.7";
       };
     };
     previews = {
