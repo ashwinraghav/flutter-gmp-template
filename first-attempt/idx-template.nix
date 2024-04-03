@@ -1,8 +1,9 @@
 { pkgs, apikey ? "missingkey", giturl ? "missingurl",... }: {
-      packages = [
-			pkgs.git
+  packages = [
+      pkgs.git
       pkgs.sdkmanager
-    ];
+      pkgs.j2cli
+  ];
   bootstrap = ''
     mkdir -p "$WS_NAME"
     
