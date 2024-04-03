@@ -7,7 +7,9 @@
     mkdir -p "$WS_NAME"
     
     git clone --depth 1 ${giturl} $WS_NAME
-    echo ${apikey} > "$WS_NAME/apikey.txt"
+
+    # Find every local.defaults.properties file in the repo ane replace the MAPS_API_KEY property with said value
+    find $WS_NAME -type f -name 'local.defaults.properties' -exec sed -i "s/\(MAPS_API_KEY=\).*/\1\"${apikey}\"/" {} \;
     chmod -R +w "$WS_NAME"
     mkdir -p "$WS_NAME/.idx/"
     # Recommend commiting the dev.nix files to the upstream repo directly.
