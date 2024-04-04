@@ -18,8 +18,7 @@
       enable = true;
       previews = [
         {
-          # command = ["./.flutter-sdk/flutter/bin/flutter" "run" "--machine" "-d" "android" "-d" "localhost:5555"];
-          command = ["./gradlew :app:assembleDebug && adb install ./app/build/outputs/apk/debug/app-debug.apk"];
+          command = ["gradlew :app:installDebug"];
           id = "android";
           manager = "flutter";
         }
