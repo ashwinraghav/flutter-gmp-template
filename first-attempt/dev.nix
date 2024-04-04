@@ -13,16 +13,12 @@
   # Sets environment variables in the workspace
   env = {};
   idx = {
-
-    previews = {
-      enable = true;
-      previews = [
-        {
-          command = ["gradlew :app:installDebug"];
-          id = "android";
-          manager = "flutter";
-        }
-      ];
+    workspace = {
+      # Runs when a workspace is first created with this `dev.nix` file
+      onCreate = {
+        npm-install = "./gradlew :app:installDebug";
+      };
+      # To run something each time the environment is rebuilt, use the `onStart` hook
     };
   };
 }
