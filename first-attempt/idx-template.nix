@@ -9,7 +9,7 @@
     
     git clone --depth 1 ${giturl} tmp
 
-    mv -r tmp/subdir/* "$WS_NAME"
+    mv tmp/subdir/* "$WS_NAME"
 
     # Find every local.defaults.properties file in the repo ane replace the MAPS_API_KEY property with said value
     find $WS_NAME -type f -name 'local.defaults.properties' -exec sed -i "s/\(MAPS_API_KEY=\).*/\1\"${apikey}\"/" {} \;
