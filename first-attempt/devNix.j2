@@ -13,13 +13,20 @@
   # Sets environment variables in the workspace
   env = {};
   idx = {
-
+    workspace = {
+      # Runs when a workspace is first created with this `dev.nix` file
+      onCreate = {
+        npm-install = "./gradlew :app:installDebug && adb -s emulator-5554 shell am start -n {{ launch_activity }}";
+      };
+      # To run something each time the environment is rebuilt, use the `onStart` hook
+    };
     previews = {
       enable = true;
       previews = [
         {
-          # command = ["./.flutter-sdk/flutter/bin/flutter" "run" "--machine" "-d" "android" "-d" "localhost:5555"];
-          command = ["cd {{ project_path }} && ./gradlew :app:assembleDebug && adb install ./app/build/outputs/apk/debug/app-debug.apk"];
+          # For some reason the gradle command fails here, but not up above.
+          # TODO vkryachko
+          command = ["ls"];
           id = "android";
           manager = "flutter";
         }
