@@ -22,6 +22,7 @@
 
     # We create a dev.nix that builds the subproject specified at template instantiation
     # workspace_name=$WS_NAME project_path=${subdir} j2 --format=env ${./devNix.j2} -o $WS_NAME/.idx/dev.nix
+    cp -rf ${./dev.nix} "$WS_NAME/.idx/dev.nix"
     mv "$WS_NAME" "$out"
   '';
 }
