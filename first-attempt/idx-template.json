@@ -22,6 +22,12 @@
         "name": "Project Subfolder",
         "type": "text",
         "default": "tutorials/java/MapWithMarker/"
+      },
+      {
+        "id": "launchactivity",
+        "name": "Android Activity to launch",
+        "type": "text",
+        "default": "com.example.mapwithmarker/.MapsMarkerActivity"
       }
     ],
     "host": {
