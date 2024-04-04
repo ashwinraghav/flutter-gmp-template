@@ -20,5 +20,17 @@
       };
       # To run something each time the environment is rebuilt, use the `onStart` hook
     };
+    previews = {
+      enable = true;
+      previews = [
+        {
+          # For some reason the gradle command fails here.
+          # TODO vkryachko
+          command = ["ls"];
+          id = "android";
+          manager = "flutter";
+        }
+      ];
+    };
   };
 }
